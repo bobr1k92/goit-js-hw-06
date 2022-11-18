@@ -15,27 +15,41 @@ const images = [
 
 
 
-const galleryList = document.querySelector('.gallery');
+// const galleryList = document.querySelector('.gallery');
 
-const elementImg = images.map((element) => {
-const galleryItemEl = document.createElement('li');
-galleryItemEl.classList.add('gallery__items');
+// const elementImg = images.map((element) => {
+// const galleryItemEl = document.createElement('li');
+// galleryItemEl.classList.add('gallery__items');
 
-const galleryImagesEl = document.createElement('img');
-galleryImagesEl.classList.add('gallery__images');
+// const galleryImagesEl = document.createElement('img');
+// galleryImagesEl.classList.add('gallery__images');
 
-galleryImagesEl.src = `${element.url}`;
-galleryImagesEl.alt = `${element.alt}`;
+// galleryImagesEl.src = `${element.url}`;
+// galleryImagesEl.alt = `${element.alt}`;
 
-galleryItemEl.append(galleryImagesEl);
+// galleryItemEl.append(galleryImagesEl);
 
-return galleryItemEl;
+// return galleryItemEl;
 
-});
+// });
 
 // console.log(...elementImg);
-galleryList.append(...elementImg);
-console.log(galleryList);
+// galleryList.append(...elementImg);
+// console.log(galleryList);
+
+const galleryList = document.querySelector('.gallery');
+
+const imagesList = images.map(image =>
+         `<li class="item">
+            <img 
+            src="${image.url}" 
+            alt="${image.alt}">
+            </img>
+          </li>`).join('');
+
+console.log(imagesList);
+
+galleryList.insertAdjacentHTML('afterbegin', imagesList);
 
 
 
